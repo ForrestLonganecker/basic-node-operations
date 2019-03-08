@@ -1,0 +1,57 @@
+1. Run the commands sort, wc and uniq on the commands.js file. Explain how they 
+work and what the output was.
+
+A:
+
+  -sort
+    This command goes through the entire document and sorts it value based on it's
+    UTF-16 value. `spaces` being the lowest value in the file, the lines with the 
+    most spaces preceeding the actual content will be at the begining.
+
+  -wc
+    Word count displays how many lines of code, how many words are in the document,
+    how many characters there are in total and finally the name of the document. I
+    imagine you can get this done by breaking the document up into smaller arrays and
+    looking at the length of those different arrays.
+
+  -uniq
+    Returns the contents of the file checking for any duplicated line within the 
+    document first. I imagine you could run some sort of filter method on document
+    broken up into arrays. or do a comparison sort like bubble sort to check if the 
+    next line is the same as the one before/after.
+
+
+2. Using the pipe (|) connect at least two commands and run it on commands.js. 
+Explain what the output was and why the specific data was outputted.
+
+A:
+ `$ sort command.js | less` 
+
+    This chain piped the output of sorting command.js into the less command. I could
+    then scroll throguh the sorted data in a more controlled environment rather than
+    have it all immediatley output to the screen. It also allows you to look at the 
+    content in the window of the terminal without the output actually being printed
+    to the terminal.
+
+
+6. Reverse String
+
+Given a string, reverse the order of characters in each word within a sentence 
+while maintaining the original word order and whitespace and return the string. 
+To improve your problem-solving experience, use the suggested functions to solve 
+the problem.
+
+var reverseString = (input) => {
+    let splitArr = input.split(" ");
+    let result = [];
+    splitArr.forEach(item =>
+        result.push(item.split("").reverse().join(""))
+    );
+    return result.join(" ");
+}
+
+reverseString("Hello world! How are you?");
+
+// Output
+
+"olleH !dlrow woH era ?uoy"
